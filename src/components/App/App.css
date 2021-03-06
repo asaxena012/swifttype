@@ -1,0 +1,11 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Condensed", sans-serif;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  font-family: "Roboto Condensed", sans-serif;
+}

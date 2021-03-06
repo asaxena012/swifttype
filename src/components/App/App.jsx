@@ -1,9 +1,14 @@
 import React from "react";
 import "./App.css";
+import Nav from "./../Nav/Nav";
 
 class App extends React.Component {
   render() {
-    return <h1>Flashtype App Component</h1>;
+    return (
+      <div className="app">
+        <Nav />
+      </div>
+    );
   }
 }
 
