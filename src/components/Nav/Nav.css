@@ -22,6 +22,7 @@
   color: #f3f4f6;
   margin: 0px 10px;
   font-size: 32px;
+  letter-spacing: 0.8px;
 }
 
 .nav-right {
@@ -55,4 +56,10 @@
 
 .nav-primary-link:hover {
   background: #d3be69;
+}
+
+@media only screen and (max-width: 499px) {
+  .nav-right {
+    display: none;
+  }
 }
