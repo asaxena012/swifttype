@@ -1,0 +1,66 @@
+.try-again-section {
+  background-color: white;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  color: #4b5563;
+  border-radius: 20px;
+}
+
+button {
+  margin: 20px 7px;
+  outline: none;
+}
+
+.scores {
+  margin: 10px 0px;
+  font-size: 26px;
+}
+
+.test-score-heading {
+  font-size: 42px;
+  padding-bottom: 5px;
+  border-bottom: 2.5px solid #4b5563;
+}
+
+/* Styling the buttons */
+
+button {
+  font-family: "Roboto Condensed", sans-serif;
+  font-size: 20px;
+  color: whitesmoke;
+  padding: 10px 25px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  -webkit-box-shadow: 10px 10px 38px -33px rgba(0, 0, 0, 0.58);
+  -moz-box-shadow: 10px 10px 38px -33px rgba(0, 0, 0, 0.58);
+  box-shadow: 10px 10px 38px -33px rgba(0, 0, 0, 0.58);
+}
+
+.btn-retry {
+  background-color: #34d399;
+}
+
+.btn-retry:hover {
+  background-color: #35c08d;
+}
+
+.btn-share {
+  background-color: #4267b2;
+}
+
+.btn-share:hover {
+  background-color: #395a9c;
+}
+
+.btn-tweet {
+  background-color: #1da1f2;
+}
+
+.btn-tweet:hover {
+  background-color: #1b8fd6;
+}
