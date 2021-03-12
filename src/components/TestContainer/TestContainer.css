@@ -1,0 +1,14 @@
+.test-container {
+  background-color: white;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  color: #4b5563;
+  border-radius: 20px;
+  -webkit-box-shadow: 10px 10px 38px -24px rgba(0, 0, 0, 0.66);
+  -moz-box-shadow: 10px 10px 38px -24px rgba(0, 0, 0, 0.66);
+  box-shadow: 10px 10px 38px -24px rgba(0, 0, 0, 0.66);
+}
