@@ -1,11 +1,11 @@
 .test-container {
-  background-color: white;
+  background-color: rgb(254, 254, 254);
   width: 80%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 60vh;
+  /* align-items: center; */
+  /* justify-content: center; */
+  height: 70vh;
   color: #4b5563;
   border-radius: 20px;
   -webkit-box-shadow: 10px 10px 38px -24px rgba(0, 0, 0, 0.66);

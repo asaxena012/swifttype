@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   background: #4c1d95;
-  box-shadow: 7px 10px 39px -12px rgba(0, 0, 0, 0.34);
+  box-shadow: 5px 9px 20px -12px rgba(0, 0, 0, 0.3);
 }
 
 .nav-left {
@@ -21,8 +21,8 @@
 .nav-text {
   color: #f3f4f6;
   margin: 0px 10px;
-  font-size: 32px;
-  letter-spacing: 0.8px;
+  font-size: 30px;
+  letter-spacing: 1px;
 }
 
 .nav-right {

@@ -11,7 +11,7 @@ class App extends React.Component {
       <div className="app">
         <Nav />
         <Landing />
-        <ChallengeSection />
+        <ChallengeSection characters={120} words={60} wpm={34} />
         <Footer />
       </div>
     );
