@@ -1,6 +1,7 @@
 import React from "react";
 import DetailsCard from "../DetailsCard/DetailsCard";
 import "./TypingChallenge.css";
+import Typer from "./../Typer/Typer";
 
 const TypingChallenge = ({ characters, words, wpm }) => {
   return (
@@ -13,7 +14,9 @@ const TypingChallenge = ({ characters, words, wpm }) => {
       </div>
 
       {/* Typers */}
-      <div className="typer-container">HERE IS THE CHALLENGE</div>
+      <div className="typer-section-container">
+        <Typer selectedPara="You have to type this exact text in the typing area" />
+      </div>
     </div>
   );
 };
