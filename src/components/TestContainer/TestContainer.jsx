@@ -10,7 +10,7 @@ const TestContainer = ({ characters, words, wpm }) => {
   return (
     <div className="test-container">
       {timeRemaining > 0 ? (
-        <div data-aos="fade-up" className="TypingChallengeContainer">
+        <div className="TypingChallengeContainer">
           <TypingChallenge characters={characters} words={words} wpm={wpm} />
         </div>
       ) : (
