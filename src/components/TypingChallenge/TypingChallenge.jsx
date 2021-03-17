@@ -3,7 +3,14 @@ import DetailsCard from "../DetailsCard/DetailsCard";
 import "./TypingChallenge.css";
 import Typer from "./../Typer/Typer";
 
-const TypingChallenge = ({ characters, words, wpm }) => {
+const TypingChallenge = ({
+  selectedPara,
+  timeRemaining,
+  timerStarted,
+  words,
+  characters,
+  wpm,
+}) => {
   return (
     <div className="typing-challenge-container">
       {/* Details card * 3 */}
@@ -15,7 +22,11 @@ const TypingChallenge = ({ characters, words, wpm }) => {
 
       {/* Typers */}
       <div className="typer-section-container">
-        <Typer selectedPara="You have to type this exact text in the typing area" />
+        <Typer
+          selectedPara={selectedPara}
+          timeRemaining={timeRemaining}
+          timerStarted={timerStarted}
+        />
       </div>
     </div>
   );

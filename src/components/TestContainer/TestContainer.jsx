@@ -3,19 +3,30 @@ import TryAgain from "../TryAgain/TryAgain";
 import TypingChallenge from "../TypingChallenge/TypingChallenge";
 import "./TestContainer.css";
 
-const TestContainer = ({ characters, words, wpm }) => {
-  // Conditional Rendering of test container (dummy)
-  const timeRemaining = 30;
-
+const TestContainer = ({
+  selectedPara,
+  timeRemaining,
+  timerStarted,
+  words,
+  characters,
+  wpm,
+}) => {
   return (
     <div className="test-container">
       {timeRemaining > 0 ? (
         <div className="TypingChallengeContainer">
-          <TypingChallenge characters={characters} words={words} wpm={wpm} />
+          <TypingChallenge
+            selectedPara={selectedPara}
+            timeRemaining={timeRemaining}
+            timerStarted={timerStarted}
+            words={words}
+            characters={characters}
+            wpm={wpm}
+          />
         </div>
       ) : (
         <div className="try-again-cont">
-          <TryAgain words={10} characters={60} wpm={34} />
+          <TryAgain words={words} characters={characters} wpm={wpm} />
         </div>
       )}
     </div>

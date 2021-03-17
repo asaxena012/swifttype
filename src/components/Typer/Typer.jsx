@@ -1,12 +1,16 @@
 import React from "react";
 import "./Typer.css";
 
-const Typer = ({ selectedPara }) => {
+const Typer = ({ selectedPara, timeRemaining, timerStarted }) => {
   return (
     <div className="typer-container">
       {/* Timer */}
-      <div className="timer">00:60</div>
-      <div className="timer-text">Timer starts at typing</div>
+      <div className="timer">00:{String(timeRemaining).padStart(2, 0)}</div>
+      <div className="timer-text">
+        {!timerStarted && "Type here to start the timer"}
+      </div>
+
+      {/* Textareas */}
       <div className="textarea-container">
         <div className="textarea textarea-left">{selectedPara}</div>
         <div className="textarea textarea-right">
