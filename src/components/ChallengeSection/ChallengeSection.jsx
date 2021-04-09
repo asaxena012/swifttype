@@ -12,6 +12,7 @@ const ChallengeSection = ({
   wpm,
   testInfo,
   handleUserInput,
+  startAgain,
 }) => {
   return (
     <div className="challenge-section-container">
@@ -27,6 +28,7 @@ const ChallengeSection = ({
         wpm={wpm}
         testInfo={testInfo}
         handleUserInput={handleUserInput}
+        startAgain={startAgain}
       />
     </div>
   );

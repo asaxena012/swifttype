@@ -9,18 +9,20 @@ const totalTime = 60;
 
 const paraApiUrl = "http://metaphorpsum.com/paragraphs/1/10";
 
-class App extends React.Component {
-  state = {
-    selectedPara: "Hello aadi, type this in the input textarea",
-    timeRemaining: totalTime,
-    timerStarted: false,
-    words: 0,
-    characters: 0,
-    wpm: 0,
-    testInfo: [],
-  };
+const DefaultState = {
+  selectedPara: "Hello aadi, type this in the input textarea",
+  timeRemaining: totalTime,
+  timerStarted: false,
+  words: 0,
+  characters: 0,
+  wpm: 0,
+  testInfo: [],
+};
 
-  componentDidMount() {
+class App extends React.Component {
+  state = DefaultState;
+
+  getNewPara = () => {
     fetch(paraApiUrl)
       .then((response) => response.text())
       .then((data) => {
@@ -34,8 +36,12 @@ class App extends React.Component {
           };
         });
 
-        this.setState({ testInfo: testInfoArr });
+        this.setState({ ...DefaultState, testInfo: testInfoArr });
       });
+  };
+
+  componentDidMount() {
+    this.getNewPara();
   }
 
   startTimer = () => {
@@ -106,6 +112,10 @@ class App extends React.Component {
     this.setState({ words, characters });
   };
 
+  startAgain = () => {
+    this.getNewPara();
+  };
+
   render() {
     return (
       <div className="app">
@@ -120,6 +130,7 @@ class App extends React.Component {
           wpm={this.state.wpm}
           testInfo={this.state.testInfo}
           handleUserInput={this.handleUserInput}
+          startAgain={this.startAgain}
         />
         <Footer />
       </div>
