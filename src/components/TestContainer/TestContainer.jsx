@@ -10,6 +10,8 @@ const TestContainer = ({
   words,
   characters,
   wpm,
+  testInfo,
+  handleUserInput,
 }) => {
   return (
     <div className="test-container">
@@ -22,6 +24,8 @@ const TestContainer = ({
             words={words}
             characters={characters}
             wpm={wpm}
+            testInfo={testInfo}
+            handleUserInput={handleUserInput}
           />
         </div>
       ) : (

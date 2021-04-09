@@ -10,6 +10,8 @@ const ChallengeSection = ({
   words,
   characters,
   wpm,
+  testInfo,
+  handleUserInput,
 }) => {
   return (
     <div className="challenge-section-container">
@@ -23,6 +25,8 @@ const ChallengeSection = ({
         words={words}
         characters={characters}
         wpm={wpm}
+        testInfo={testInfo}
+        handleUserInput={handleUserInput}
       />
     </div>
   );

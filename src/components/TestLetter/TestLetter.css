@@ -1,0 +1,11 @@
+.letter-not-attempted {
+  color: #4c1d95;
+}
+
+.letter-correct {
+  color: #065f46;
+}
+
+.letter-incorrect {
+  color: #dc2626;
+}

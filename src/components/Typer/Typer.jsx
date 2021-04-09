@@ -1,7 +1,14 @@
 import React from "react";
+import TestLetter from "../TestLetter/TestLetter";
 import "./Typer.css";
 
-const Typer = ({ selectedPara, timeRemaining, timerStarted }) => {
+const Typer = ({
+  selectedPara,
+  timeRemaining,
+  timerStarted,
+  testInfo,
+  handleUserInput,
+}) => {
   return (
     <div className="typer-container">
       {/* Timer */}
@@ -12,7 +19,11 @@ const Typer = ({ selectedPara, timeRemaining, timerStarted }) => {
 
       {/* Textareas */}
       <div className="textarea-container">
-        <div className="textarea textarea-left">{selectedPara}</div>
+        <div className="textarea textarea-left">
+          {testInfo.map((singleLetter) => (
+            <TestLetter singleLetter={singleLetter} />
+          ))}
+        </div>
         <div className="textarea textarea-right">
           <textarea
             name=""
@@ -21,6 +32,7 @@ const Typer = ({ selectedPara, timeRemaining, timerStarted }) => {
             rows="10"
             className="input-textarea"
             placeholder="Start typing here..."
+            onChange={(e) => handleUserInput(e.target.value)}
           ></textarea>
         </div>
       </div>
