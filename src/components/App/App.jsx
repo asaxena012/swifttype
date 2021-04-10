@@ -4,13 +4,14 @@ import Nav from "./../Nav/Nav";
 import Landing from "./../Landing/Landing";
 import Footer from "./../Footer/Footer";
 import ChallengeSection from "./../ChallengeSection/ChallengeSection";
+import { SAMPLE_PARAGRAPHS } from "./../../data/data";
 
 const totalTime = 60;
 
 const paraApiUrl = "http://metaphorpsum.com/paragraphs/1/10";
 
 const DefaultState = {
-  selectedPara: "Hello aadi, type this in the input textarea",
+  selectedPara: "",
   timeRemaining: totalTime,
   timerStarted: false,
   words: 0,
@@ -22,13 +23,32 @@ const DefaultState = {
 class App extends React.Component {
   state = DefaultState;
 
+  getNewParaOffline = () => {
+    console.log("New para function called");
+
+    const data =
+      SAMPLE_PARAGRAPHS[Math.floor(Math.random() * SAMPLE_PARAGRAPHS.length)];
+
+    const selectedParaLetters = data.split("");
+    const testInfoArr = selectedParaLetters.map((letter) => {
+      return {
+        testLetter: letter,
+        testStatus: "notAttempted",
+      };
+    });
+
+    this.setState({
+      ...DefaultState,
+      selectedPara: data,
+      testInfo: testInfoArr,
+    });
+  };
+
   getNewPara = () => {
     fetch(paraApiUrl)
       .then((response) => response.text())
       .then((data) => {
-        this.setState({ selectedPara: data });
-
-        const selectedParaLetters = this.state.selectedPara.split("");
+        const selectedParaLetters = data.split("");
         const testInfoArr = selectedParaLetters.map((letter) => {
           return {
             testLetter: letter,
@@ -36,12 +56,16 @@ class App extends React.Component {
           };
         });
 
-        this.setState({ ...DefaultState, testInfo: testInfoArr });
+        this.setState({
+          ...DefaultState,
+          selectedPara: data,
+          testInfo: testInfoArr,
+        });
       });
   };
 
   componentDidMount() {
-    this.getNewPara();
+    this.getNewParaOffline();
   }
 
   startTimer = () => {
@@ -74,8 +98,6 @@ class App extends React.Component {
       this.startTimer();
     }
 
-    //Render speed
-
     //Update the characters and words
     const words = input.split(" ").length;
     const characters = input.length;
@@ -103,7 +125,22 @@ class App extends React.Component {
     } else {
       //Backspaced
       //Change written-1's status as not attempted
-      if (input.length >= 0)
+
+      if (this.writtenLength - input.length > 1) {
+        //Traverse whole testInfo
+
+        testInfoNew.forEach((el) => {
+          el.testStatus = "notAttempted";
+        });
+
+        input.split("").forEach((letter, idx) => {
+          if (testInfoNew[idx].testLetter == letter) {
+            testInfoNew[idx].testStatus = "correct";
+          } else {
+            testInfoNew[idx].testStatus = "incorrect";
+          }
+        });
+      } else if (input.length >= 0)
         testInfoNew[input.length].testStatus = "notAttempted";
     }
 
@@ -113,7 +150,7 @@ class App extends React.Component {
   };
 
   startAgain = () => {
-    this.getNewPara();
+    this.getNewParaOffline();
   };
 
   render() {

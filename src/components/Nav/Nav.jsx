@@ -7,7 +7,7 @@ const Nav = () => {
     <div className="nav-container">
       <div className="nav-left">
         <img src={logo} alt="logo" className="logo-image" />
-        <p className="nav-text">Swifttype</p>
+        <p className="nav-text">Swift Type</p>
       </div>
       <div className="nav-right">
         <a href="mailto:adityasaxena@gmail.com" className="nav-secondary-link">
