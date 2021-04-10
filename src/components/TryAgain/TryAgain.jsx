@@ -2,6 +2,18 @@ import React from "react";
 import "./TryAgain.css";
 
 const TryAgain = ({ words, characters, wpm, startAgain }) => {
+  const sharerText = `I got a ${wpm} words per minute score on Swift Type.
+  
+  
+  
+  
+  
+  
+  
+  
+  Give the test and share your score at swift-type.web.app
+  `;
+
   return (
     <div className="try-again-container">
       <h1 className="test-score-heading"> Test Scores</h1>
@@ -21,7 +33,7 @@ const TryAgain = ({ words, characters, wpm, startAgain }) => {
         <button
           onClick={() => {
             window.open(
-              "https://www.facebook.com/sharer/sharer.php?u=asaxena012.github.io/nameit",
+              `https://www.facebook.com/sharer/sharer.php?u=swift-type.web.app`,
               "facebook-share-dialog",
               "width= 800, height= 600"
             );
@@ -33,7 +45,7 @@ const TryAgain = ({ words, characters, wpm, startAgain }) => {
         <button
           onClick={() => {
             window.open(
-              "https://twitter.com/intent/tweet?text=asaxena012.github.io/nameit",
+              `https://twitter.com/intent/tweet?text=${sharerText}`,
               "Twitter",
               "width= 800, height= 600"
             );
