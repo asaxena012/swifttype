@@ -18,6 +18,8 @@ const DefaultState = {
   characters: 0,
   wpm: 0,
   testInfo: [],
+  wordArray: [],
+  correctWordCnt: 0,
 };
 
 class App extends React.Component {
@@ -30,6 +32,7 @@ class App extends React.Component {
       SAMPLE_PARAGRAPHS[Math.floor(Math.random() * SAMPLE_PARAGRAPHS.length)];
 
     const selectedParaLetters = data.split("");
+    const wordArray = data.split(" ");
     const testInfoArr = selectedParaLetters.map((letter) => {
       return {
         testLetter: letter,
@@ -41,6 +44,7 @@ class App extends React.Component {
       ...DefaultState,
       selectedPara: data,
       testInfo: testInfoArr,
+      wordArray: wordArray,
     });
   };
 
@@ -81,9 +85,10 @@ class App extends React.Component {
 
       let speed =
         this.state.timeRemaining < 60
-          ? (this.state.words / (totalTime - this.state.timeRemaining)) *
+          ? (this.state.correctWordCnt /
+              (totalTime - this.state.timeRemaining)) *
             totalTime
-          : this.state.words;
+          : this.state.correctWordCnt;
       this.setState({
         wpm: parseInt(speed),
       });
@@ -99,8 +104,16 @@ class App extends React.Component {
     }
 
     //Update the characters and words
-    const words = input.split(" ").length;
+    const words = input.split(" ");
     const characters = input.length;
+
+    //Update correct word count
+    if (
+      input[input.length - 1] == " " &&
+      this.state.wordArray[words.length - 2] == words[words.length - 2]
+    ) {
+      this.setState({ correctWordCnt: this.state.correctWordCnt + 1 });
+    }
 
     let testInfoNew = Object.assign(this.state.testInfo);
 
@@ -146,7 +159,7 @@ class App extends React.Component {
 
     this.writtenLength = input.length;
     this.setState({ testInfo: testInfoNew });
-    this.setState({ words, characters });
+    this.setState({ words: this.state.correctWordCnt, characters });
   };
 
   startAgain = () => {
