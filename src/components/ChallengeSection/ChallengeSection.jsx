@@ -1,6 +1,5 @@
 import React from "react";
 import TestContainer from "../TestContainer/TestContainer";
-import TryAgain from "../TryAgain/TryAgain";
 import "./ChallengeSection.css";
 
 const ChallengeSection = ({

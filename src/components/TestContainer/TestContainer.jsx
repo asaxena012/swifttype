@@ -17,7 +17,7 @@ const TestContainer = ({
   return (
     <div className="test-container">
       {timeRemaining > 0 ? (
-        <div className="TypingChallengeContainer">
+        <>
           <TypingChallenge
             selectedPara={selectedPara}
             timeRemaining={timeRemaining}
@@ -28,7 +28,7 @@ const TestContainer = ({
             testInfo={testInfo}
             handleUserInput={handleUserInput}
           />
-        </div>
+        </>
       ) : (
         <div className="try-again-cont">
           <TryAgain

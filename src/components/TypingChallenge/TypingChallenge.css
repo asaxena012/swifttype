@@ -1,7 +1,8 @@
 .typing-challenge-container {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  justify-content: space-between;
+  min-height: 100%;
 }
 
 .details-card-container {
